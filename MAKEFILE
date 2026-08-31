@@ -1,0 +1,10 @@
+main: main.c
+	gcc -Wall -Wextra -std=c11 main.c -o main
+
+run: main
+	./main
+
+clean:
+	rm -f main
+
+.PHONY: run clean
