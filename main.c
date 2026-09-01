@@ -78,10 +78,7 @@ int main(int argc, char *argv[]) {
     int max_iteracoes;
     int num_threads;
 
-    if (!converter_inteiro(argv[1], &largura) ||
-        !converter_inteiro(argv[2], &altura) ||
-        !converter_inteiro(argv[3], &max_iteracoes) ||
-        !converter_inteiro(argv[4], &num_threads)) {
+    if (!converter_inteiro(argv[1], &largura) || !converter_inteiro(argv[2], &altura) || !converter_inteiro(argv[3], &max_iteracoes) || !converter_inteiro(argv[4], &num_threads)) {
 
         fprintf(stderr, "Erro: argumentos invalidos.\n");
         return 1;
@@ -93,6 +90,16 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "Erro: valores invalidos.\n");
         return 1;
     }
+    int *imagem = criar_imagem(largura, altura);
+
+    if (imagem == NULL) {
+        fprintf(stderr, "Erro ao alocar memoria.\n");
+        return 1;
+    }
+
+    calcular_serial(largura, altura, max_iteracoes, imagem);
+
+    free(imagem);
 
     return 0;
 }
