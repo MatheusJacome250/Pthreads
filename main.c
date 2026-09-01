@@ -1,6 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
+#include <time.h>
+
+double tempo_atual() {
+    struct timespec tempo;
+
+    clock_gettime(CLOCK_MONOTONIC, &tempo);
+
+    return tempo.tv_sec + tempo.tv_nsec / 1000000000.0;
+}
 
 int calcular_pixel(double c_real, double c_imag, int max_iteracoes) {
 
@@ -57,12 +66,33 @@ int converter_inteiro(char *texto, int *valor) {
     char *fim;
     long numero = strtol(texto, &fim, 10);
 
-    if (*texto == '\0' || *fim != '\0' ||
-        numero < INT_MIN || numero > INT_MAX) {
+    if (*texto == '\0' || *fim != '\0' || numero < INT_MIN || numero > INT_MAX) {
         return 0;
     }
 
     *valor = (int)numero;
+    return 1;
+}
+
+int salvar_imagem(char *nome_arquivo, int *imagem, int largura, int altura) {
+
+    FILE *arquivo = fopen(nome_arquivo, "w");
+
+    if (arquivo == NULL) {
+        return 0;
+    }
+
+    for (int linha = 0; linha < altura; linha++) {
+        for (int coluna = 0; coluna < largura; coluna++) {
+
+            fprintf(arquivo, "%d ", imagem[linha * largura + coluna]);
+        }
+
+        fprintf(arquivo, "\n");
+    }
+
+    fclose(arquivo);
+
     return 1;
 }
 
@@ -84,8 +114,7 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    if (largura < 2 || altura < 2 ||
-        max_iteracoes <= 0 || num_threads <= 0) {
+    if (largura < 2 || altura < 2 || max_iteracoes <= 0 || num_threads <= 0) {
 
         fprintf(stderr, "Erro: valores invalidos.\n");
         return 1;
@@ -97,7 +126,29 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
+    double inicio = tempo_atual();
     calcular_serial(largura, altura, max_iteracoes, imagem);
+    double fim = tempo_atual();
+    double tempo_serial = fim - inicio;
+
+    if (!salvar_imagem("mandelbrot_masj_serial.pgm", imagem, largura, altura)) {
+
+        fprintf(stderr, "Erro ao criar arquivo de saida.\n");
+        free(imagem);
+        return 1;
+    }
+
+    FILE *arquivo_tempo = fopen("times.txt", "w");
+
+    if (arquivo_tempo == NULL) {
+        fprintf(stderr, "Erro ao criar times.txt.\n");
+        free(imagem);
+        return 1;
+    }
+
+    fprintf(arquivo_tempo, "Serial: %f\n", tempo_serial);
+
+    fclose(arquivo_tempo);
 
     free(imagem);
 
