@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
 
 int calcular_pixel(double c_real, double c_imag, int max_iteracoes) {
 
@@ -39,7 +41,58 @@ void calcular_serial(int largura, int altura, int max_iteracoes, int *imagem) {
     }
 }
 
-int main() {
+int *criar_imagem(int largura, int altura) {
+
+    int *imagem = malloc(largura * altura * sizeof(int));
+
+    if (imagem == NULL) {
+        return NULL;
+    }
+
+    return imagem;
+}
+
+int converter_inteiro(char *texto, int *valor) {
+
+    char *fim;
+    long numero = strtol(texto, &fim, 10);
+
+    if (*texto == '\0' || *fim != '\0' ||
+        numero < INT_MIN || numero > INT_MAX) {
+        return 0;
+    }
+
+    *valor = (int)numero;
+    return 1;
+}
+
+int main(int argc, char *argv[]) {
+
+    if (argc != 5) {
+        fprintf(stderr, "Uso: ./mandelbrot largura altura max_iteracoes num_threads\n");
+        return 1;
+    }
+
+    int largura;
+    int altura;
+    int max_iteracoes;
+    int num_threads;
+
+    if (!converter_inteiro(argv[1], &largura) ||
+        !converter_inteiro(argv[2], &altura) ||
+        !converter_inteiro(argv[3], &max_iteracoes) ||
+        !converter_inteiro(argv[4], &num_threads)) {
+
+        fprintf(stderr, "Erro: argumentos invalidos.\n");
+        return 1;
+    }
+
+    if (largura < 2 || altura < 2 ||
+        max_iteracoes <= 0 || num_threads <= 0) {
+
+        fprintf(stderr, "Erro: valores invalidos.\n");
+        return 1;
+    }
 
     return 0;
 }
