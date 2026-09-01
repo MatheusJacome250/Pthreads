@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <limits.h>
 #include <time.h>
+#include <omp.h>
 
 double tempo_atual() {
     struct timespec tempo;
@@ -32,6 +33,27 @@ int calcular_pixel(double c_real, double c_imag, int max_iteracoes) {
 }
 
 void calcular_serial(int largura, int altura, int max_iteracoes, int *imagem) {
+
+    for (int linha = 0; linha < altura; linha++) {
+
+        double c_imag = -1.5 + (3.0 * linha) / (altura - 1);
+
+        for (int coluna = 0; coluna < largura; coluna++) {
+
+            double c_real = -2.0 + (3.0 * coluna) / (largura - 1);
+
+            int iteracoes = calcular_pixel(c_real, c_imag, max_iteracoes);
+
+            int intensidade = (iteracoes * 255) / max_iteracoes;
+
+            imagem[linha * largura + coluna] = intensidade;
+        }
+    }
+}
+
+void calcular_openmp(int largura, int altura, int max_iteracoes, int num_threads, int *imagem) {
+
+    #pragma omp parallel for num_threads(num_threads)
 
     for (int linha = 0; linha < altura; linha++) {
 
