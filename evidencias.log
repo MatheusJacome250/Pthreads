@@ -1,0 +1,54 @@
+Script started on 2026-09-01 19:32:30-03:00 [TERM="xterm-256color" TTY="/dev/pts/4" COLUMNS="91" LINES="11"]
+[?2004h]0;mathe@Mjcome: /mnt/d/3pSO/masj[01;32mmathe@Mjcome[00m:[01;34m/mnt/d/3pSO/masj[00m$ [7mdate[27m
+[7mwhoami[27m
+[7mpwd[27m[A[A]0;mathe@Mjcome: /mnt/d/3pSO/masj[01;32mmathe@Mjcome[00m:[01;34m/mnt/d/3pSO/masj[00m$ date
+whoami
+pwd
+[?2004lTue Sep  1 19:32:39 -03 2026
+mathe
+/mnt/d/3pSO/masj
+[?2004h]0;mathe@Mjcome: /mnt/d/3pSO/masj[01;32mmathe@Mjcome[00m:[01;34m/mnt/d/3pSO/masj[00m$ make cleanb[K
+[?2004lmake: *** No rule to make target 'clean'.  Stop.
+[?2004h]0;mathe@Mjcome: /mnt/d/3pSO/masj[01;32mmathe@Mjcome[00m:[01;34m/mnt/d/3pSO/masj[00m$ make
+[?2004lmake: *** No targets specified and no makefile found.  Stop.
+[?2004h]0;mathe@Mjcome: /mnt/d/3pSO/masj[01;32mmathe@Mjcome[00m:[01;34m/mnt/d/3pSO/masj[00m$ ./mandelbrot 800 600 1000 4
+[?2004lbash: ./mandelbrot: No such file or directory
+[?2004h]0;mathe@Mjcome: /mnt/d/3pSO/masj[01;32mmathe@Mjcome[00m:[01;34m/mnt/d/3pSO/masj[00m$ ^C[?2004l[?2004h[?2004l
+[?2004h]0;mathe@Mjcome: /mnt/d/3pSO/masj[01;32mmathe@Mjcome[00m:[01;34m/mnt/d/3pSO/masj[00m$ [7mls -la[27mls -la
+[?2004ltotal 4
+drwxrwxrwx 1 mathe mathe 4096 Aug 31 07:51 [0m[34;42m.[0m
+drwxrwxrwx 1 mathe mathe 4096 Aug 31 07:35 [34;42m..[0m
+drwxrwxrwx 1 mathe mathe 4096 Sep  1 19:31 [34;42m.git[0m
+-rwxrwxrwx 1 mathe mathe  157 Sep  1 19:27 [01;32mMAKEFILE[0m
+-rwxrwxrwx 1 mathe mathe   32 Aug 31 07:42 [01;32mREADME.md[0m
+-rwxrwxrwx 1 mathe mathe    0 Aug 31 07:49 [01;32mevidencias.log[0m
+-rwxrwxrwx 1 mathe mathe 3629 Sep  1 19:21 [01;32mmain.c[0m
+[?2004h]0;mathe@Mjcome: /mnt/d/3pSO/masj[01;32mmathe@Mjcome[00m:[01;34m/mnt/d/3pSO/masj[00m$ [7mmv MAKEFILE Makefile[27mmv MAKEFILE Makefile
+[?2004lmv: 'MAKEFILE' and 'Makefile' are the same file
+[?2004h]0;mathe@Mjcome: /mnt/d/3pSO/masj[01;32mmathe@Mjcome[00m:[01;34m/mnt/d/3pSO/masj[00m$ [K]0;mathe@Mjcome: /mnt/d/3pSO/masj[01;32mmathe@Mjcome[00m:[01;34m/mnt/d/3pSO/masj[00m$ [K]0;mathe@Mjcome: /mnt/d/3pSO/masj[01;32mmathe@Mjcome[00m:[01;34m/mnt/d/3pSO/masj[00m$ [7mls[27mls
+[?2004l[0m[01;32mMAKEFILE[0m  [01;32mREADME.md[0m  [01;32mevidencias.log[0m  [01;32mmain.c[0m
+[?2004h]0;mathe@Mjcome: /mnt/d/3pSO/masj[01;32mmathe@Mjcome[00m:[01;34m/mnt/d/3pSO/masj[00m$ ^C[?2004l[?2004h[?2004l
+[?2004h]0;mathe@Mjcome: /mnt/d/3pSO/masj[01;32mmathe@Mjcome[00m:[01;34m/mnt/d/3pSO/masj[00m$ [K]0;mathe@Mjcome: /mnt/d/3pSO/masj[01;32mmathe@Mjcome[00m:[01;34m/mnt/d/3pSO/masj[00m$ [7mmv MAKEFILE temp[27m
+[7mmv temp Makefile[27m[A]0;mathe@Mjcome: /mnt/d/3pSO/masj[01;32mmathe@Mjcome[00m:[01;34m/mnt/d/3pSO/masj[00m$ mv MAKEFILE temp
+mv temp Makefile
+[?2004l[?2004h]0;mathe@Mjcome: /mnt/d/3pSO/masj[01;32mmathe@Mjcome[00m:[01;34m/mnt/d/3pSO/masj[00m$ [7mls[27mls
+[?2004l[0m[01;32mMakefile[0m  [01;32mREADME.md[0m  [01;32mevidencias.log[0m  [01;32mmain.c[0m
+[?2004h]0;mathe@Mjcome: /mnt/d/3pSO/masj[01;32mmathe@Mjcome[00m:[01;34m/mnt/d/3pSO/masj[00m$ make clean
+[?2004lrm -f mandelbrot
+[?2004h]0;mathe@Mjcome: /mnt/d/3pSO/masj[01;32mmathe@Mjcome[00m:[01;34m/mnt/d/3pSO/masj[00m$ make
+[?2004lgcc -Wall -Wextra -std=c11 -fopenmp -pthread main.c -o mandelbrot
+[?2004h]0;mathe@Mjcome: /mnt/d/3pSO/masj[01;32mmathe@Mjcome[00m:[01;34m/mnt/d/3pSO/masj[00m$ [K]0;mathe@Mjcome: /mnt/d/3pSO/masj[01;32mmathe@Mjcome[00m:[01;34m/mnt/d/3pSO/masj[00m$ [K]0;mathe@Mjcome: /mnt/d/3pSO/masj[01;32mmathe@Mjcome[00m:[01;34m/mnt/d/3pSO/masj[00m$ [K]0;mathe@Mjcome: /mnt/d/3pSO/masj[01;32mmathe@Mjcome[00m:[01;34m/mnt/d/3pSO/masj[00m$ [K]0;mathe@Mjcome: /mnt/d/3pSO/masj[01;32mmathe@Mjcome[00m:[01;34m/mnt/d/3pSO/masj[00m$ [K]0;mathe@Mjcome: /mnt/d/3pSO/masj[01;32mmathe@Mjcome[00m:[01;34m/mnt/d/3pSO/masj[00m$ [K]0;mathe@Mjcome: /mnt/d/3pSO/masj[01;32mmathe@Mjcome[00m:[01;34m/mnt/d/3pSO/masj[00m$ [7m./mandelbrot 800 600 1000 4[27m./mandelbrot 800 600 1000 4
+[?2004l[?2004h]0;mathe@Mjcome: /mnt/d/3pSO/masj[01;32mmathe@Mjcome[00m:[01;34m/mnt/d/3pSO/masj[00m$ [7mls[27mls
+[?2004l[0m[01;32mMakefile[0m   [01;32mevidencias.log[0m  [01;32mmandelbrot[0m                  [01;32mtimes.txt[0m
+[01;32mREADME.md[0m  [01;32mmain.c[0m          [01;32mmandelbrot_masj_serial.pgm[0m
+[?2004h]0;mathe@Mjcome: /mnt/d/3pSO/masj[01;32mmathe@Mjcome[00m:[01;34m/mnt/d/3pSO/masj[00m$ [7mcat times.txt[27mcat times.txt
+[?2004lSerial: 0.486631
+[?2004h]0;mathe@Mjcome: /mnt/d/3pSO/masj[01;32mmathe@Mjcome[00m:[01;34m/mnt/d/3pSO/masj[00m$ [7mhead -n 3 mandelbrot_masj_serial.pgm[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Chead -n 3 mandelbrot_masj_serial.pgm
+[?2004l0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+[?2004h]0;mathe@Mjcome: /mnt/d/3pSO/masj[01;32mmathe@Mjcome[00m:[01;34m/mnt/d/3pSO/masj[00m$ ^C[?2004l[?2004h[?2004l
+[?2004h]0;mathe@Mjcome: /mnt/d/3pSO/masj[01;32mmathe@Mjcome[00m:[01;34m/mnt/d/3pSO/masj[00m$ exit
+[?2004lexit
+
+Script done on 2026-09-01 19:39:17-03:00 [COMMAND_EXIT_CODE="130"]
