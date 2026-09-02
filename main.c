@@ -3,7 +3,15 @@
 #include <limits.h>
 #include <time.h>
 #include <omp.h>
-
+#include <pthread.h>
+typedef struct {
+    int inicio;
+    int fim;
+    int largura;
+    int altura;
+    int max_iteracoes;
+    int *imagem;
+} DadosThread;
 double tempo_atual() {
     struct timespec tempo;
 
@@ -117,6 +125,70 @@ int salvar_imagem(char *nome_arquivo, int *imagem, int largura, int altura) {
 
     return 1;
 }
+void *calcular_bloco(void *arg) {
+
+    DadosThread *dados = (DadosThread *)arg;
+
+    for (int linha = dados->inicio; linha < dados->fim; linha++) {
+
+        double c_imag = -1.5 + (3.0 * linha) / (dados->altura - 1);
+
+        for (int coluna = 0; coluna < dados->largura; coluna++) {
+
+            double c_real = -2.0 + (3.0 * coluna) / (dados->largura - 1);
+
+            int iteracoes = calcular_pixel(
+                c_real,
+                c_imag,
+                dados->max_iteracoes
+            );
+
+            int intensidade =
+                (iteracoes * 255) / dados->max_iteracoes;
+
+            dados->imagem[linha * dados->largura + coluna] = intensidade;
+        }
+    }
+
+    return NULL;
+}
+
+int calcular_pthreads1(int largura, int altura, int max_iteracoes, int num_threads, int *imagem) {
+
+    pthread_t threads[num_threads];
+    DadosThread dados[num_threads];
+
+    int linhas_por_thread = altura / num_threads;
+
+    for (int i = 0; i < num_threads; i++) {
+
+        dados[i].inicio = i * linhas_por_thread;
+        dados[i].fim = (i + 1) * linhas_por_thread;
+        dados[i].largura = largura;
+        dados[i].altura = altura;
+        dados[i].max_iteracoes = max_iteracoes;
+        dados[i].imagem = imagem;
+
+        if (i == num_threads - 1) {
+            dados[i].fim = altura;
+        }
+
+        if (pthread_create(&threads[i], NULL, calcular_bloco, &dados[i]) != 0) {
+
+            for (int j = 0; j < i; j++) {
+                pthread_join(threads[j], NULL);
+            }
+
+            return 0;
+        }
+    }
+
+    for (int i = 0; i < num_threads; i++) {
+        pthread_join(threads[i], NULL);
+    }
+
+    return 1;
+}
 
 int main(int argc, char *argv[]) {
 
@@ -185,8 +257,32 @@ int main(int argc, char *argv[]) {
         free(imagem);
         return 1;
     }
-
     fprintf(arquivo_tempo, "OpenMP: %f\n", tempo_openmp);
+
+    inicio = tempo_atual();
+
+    if (!calcular_pthreads1(largura, altura, max_iteracoes, num_threads, imagem)) {
+
+        fprintf(stderr, "Erro ao criar thread.\n");
+        fclose(arquivo_tempo);
+        free(imagem);
+        return 1;
+    }
+
+    fim = tempo_atual();
+
+    double tempo_pthreads1 = fim - inicio;
+
+    if (!salvar_imagem("mandelbrot_masj_pthreads1.pgm",
+                    imagem, largura, altura)) {
+
+        fprintf(stderr, "Erro ao criar arquivo de saida.\n");
+        fclose(arquivo_tempo);
+        free(imagem);
+        return 1;
+    }
+
+    fprintf(arquivo_tempo, "Pthreads1: %f\n", tempo_pthreads1);
 
     fclose(arquivo_tempo);
 
