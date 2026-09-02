@@ -170,6 +170,24 @@ int main(int argc, char *argv[]) {
 
     fprintf(arquivo_tempo, "Serial: %f\n", tempo_serial);
 
+    inicio = tempo_atual();
+
+    calcular_openmp(largura, altura, max_iteracoes, num_threads, imagem);
+
+    fim = tempo_atual();
+
+    double tempo_openmp = fim - inicio;
+
+    if (!salvar_imagem("mandelbrot_masj_openmp.pgm", imagem, largura, altura)) {
+
+        fprintf(stderr, "Erro ao criar arquivo de saida.\n");
+        fclose(arquivo_tempo);
+        free(imagem);
+        return 1;
+    }
+
+    fprintf(arquivo_tempo, "OpenMP: %f\n", tempo_openmp);
+
     fclose(arquivo_tempo);
 
     free(imagem);
